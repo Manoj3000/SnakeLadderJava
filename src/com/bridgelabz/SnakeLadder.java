@@ -14,12 +14,13 @@ public class SnakeLadder {
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to Snake and Ladder program");
-		int startPosition = 0, currentPosition = 0, dieNumber, option;
+		int startPosition = 0, currentPosition = 0, dieNumber, option, diceCount = 0;
 		final int NO_PLAY = 0, LADDER = 1, SNAKE = 2, winningPosition = 100;
 
 		System.out.println("current Position : " + currentPosition);
 
 		while (currentPosition < winningPosition) {
+			diceCount++;
 			int temPosition = currentPosition;
 
 			dieNumber = rollsDie();
@@ -34,10 +35,10 @@ public class SnakeLadder {
 				break;
 			case LADDER:
 				currentPosition = currentPosition + dieNumber;
-				//i did this in uc4 Exact Winning Position
-				if(currentPosition > winningPosition) {
+				// i did this in uc4 Exact Winning Position
+				if (currentPosition > winningPosition) {
 					System.out.println("You need a different number to win!");
-					currentPosition = temPosition;	
+					currentPosition = temPosition;
 				}
 				System.out.println("You got the Ladder, Position : " + currentPosition);
 				break;
@@ -52,6 +53,7 @@ public class SnakeLadder {
 				break;
 			}
 		}
+		System.out.println("The No.of times dice was rolled is : " + diceCount);
 
 	}
 }
