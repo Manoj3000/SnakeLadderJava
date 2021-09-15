@@ -15,11 +15,13 @@ public class SnakeLadder {
 	public static void main(String[] args) {
 		System.out.println("Welcome to Snake and Ladder program");
 		int startPosition = 0, currentPosition = 0, dieNumber, option;
-		final int NO_PLAY = 0, LADDER = 1, SNAKE = 2;
+		final int NO_PLAY = 0, LADDER = 1, SNAKE = 2, winningPosition = 100;
 
 		System.out.println("current Position : " + currentPosition);
 
-		for (int i = 0; i < 10; i++) {
+		while (currentPosition < winningPosition) {
+			int temPosition = currentPosition;
+
 			dieNumber = rollsDie();
 			System.out.println("Dice Number : " + dieNumber);
 
@@ -32,6 +34,10 @@ public class SnakeLadder {
 				break;
 			case LADDER:
 				currentPosition = currentPosition + dieNumber;
+				if(currentPosition > winningPosition) {
+					System.out.println("You need a different number to win!");
+					currentPosition = temPosition;	
+				}
 				System.out.println("You got the Ladder, Position : " + currentPosition);
 				break;
 			case SNAKE:
