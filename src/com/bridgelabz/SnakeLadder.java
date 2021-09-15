@@ -34,6 +34,7 @@ public class SnakeLadder {
 				break;
 			case LADDER:
 				currentPosition = currentPosition + dieNumber;
+				//i did this in uc4 Exact Winning Position
 				if(currentPosition > winningPosition) {
 					System.out.println("You need a different number to win!");
 					currentPosition = temPosition;	
